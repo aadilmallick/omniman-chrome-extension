@@ -1,0 +1,32 @@
+{
+  "name": "Put Omniman",
+  "description": "Puts an image of thicc omniman everywhere",
+  "version": "1.0",
+  "manifest_version": 3,
+  "background": {
+    "service_worker": "background.js"
+  },
+  "permissions": ["storage", "activeTab", "scripting", "tabs"],
+  "action": {
+    "default_popup": "Popup.html",
+    "default_icon": {
+      "16": "/images/omni16.png",
+      "32": "/images/omni32.png",
+      "48": "/images/omni48.png",
+      "128": "/images/omni128.png"
+    },
+    "default_title": "Click on Omniman"
+  },
+  "icons": {
+    "16": "/images/omni16.png",
+    "32": "/images/omni32.png",
+    "48": "/images/omni48.png",
+    "128": "/images/omni128.png"
+  },
+  "web_accessible_resources": [
+    {
+      "resources": ["/images/*"],
+      "matches": ["https://*/*"]
+    }
+  ]
+}
