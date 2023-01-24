@@ -1,9 +1,22 @@
-const srcs = ["images/omni1.jpg", "images/omni2.jpg"];
+let srcs = ["images/omni1.jpg", "images/omni2.jpg"];
 
-const imgs = document.querySelectorAll("img");
+let imgs = document.querySelectorAll("img");
+let curOffset = 0;
 
-for (let img of imgs) {
-  img.src = chrome.runtime.getURL(
-    srcs[Math.floor(Math.random() * srcs.length)]
-  );
+function setImages() {
+  for (let img of imgs) {
+    let url = chrome.runtime.getURL(
+      srcs[Math.floor(Math.random() * srcs.length)]
+    );
+    if (img.src != url) img.src = url;
+  }
 }
+
+setImages();
+
+// window.addEventListener("scroll", (e) => {
+//   console.log(window.scrollY, curOffset);
+//   if (window.scrollY > window.innerHeight && window.scrollY > curOffset) {
+//     curOffset += window.innerHeight;
+//   }
+// });
